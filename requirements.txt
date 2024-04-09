@@ -29,4 +29,4 @@ thop>=0.1.1  # FLOPs computation
 GitPython>=3.1.24
 
 # WebSracping ------------------------
-BeautifulSoup
+beautifulsoup4
