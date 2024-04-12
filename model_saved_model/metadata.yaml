@@ -1,0 +1,14 @@
+description: Ultralytics model model trained on /content/Licence-Plate-Detection-using-YOLO-V8/Lebanese-Plates-Detection-5/data.yaml
+author: Ultralytics
+date: '2024-04-12T16:22:26.448848'
+version: 8.1.47
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: License_Plate

@@ -1,0 +1,12 @@
+names:
+- License_Plate
+nc: 1
+roboflow:
+  license: ODbL v1.0
+  project: lebanese-plates-detection
+  url: https://universe.roboflow.com/gg-6ss5j/lebanese-plates-detection/dataset/5
+  version: 5
+  workspace: gg-6ss5j
+test: ../test/images
+train: Lebanese-Plates-Detection-5/train/images
+val: Lebanese-Plates-Detection-5/valid/images
