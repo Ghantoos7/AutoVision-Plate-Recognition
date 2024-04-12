@@ -1,8 +1,8 @@
 task: detect
 mode: train
 model: yolov8n.pt
-data: /content/Licence-Plate-Detection-using-YOLO-V8/Licenseplate-1/data.yaml
-epochs: 100
+data: /content/Licence-Plate-Detection-using-YOLO-V8/Lebanese-Plates-Detection-5/data.yaml
+epochs: 200
 patience: 50
 batch: 16
 imgsz: 640
