@@ -46,7 +46,7 @@ pip install -r requirements.txt
 To process an image or video, use the following command:
 
 ```bash
-python recognize.py --source your_file_path
+python recognize.py your_file_path
 ```
 
 The script accepts the path to the source image or video file and processes it to output the detection and recognition results or if you put 0 it will use your camera for real time detection and recognition.

@@ -60,6 +60,8 @@ def process_frames(cap, out, frame, is_video):
                         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
                         cv2.putText(frame, text, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
+        cv2.imshow('Frame', frame)  
+
         if is_video:
             out.write(frame)  
             ret, frame = cap.read()
@@ -68,23 +70,34 @@ def process_frames(cap, out, frame, is_video):
         else:
             break
 
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cv2.destroyAllWindows()  
+
 def main():
     parser = argparse.ArgumentParser(description="Process a video or an image source.")
     parser.add_argument('source', type=str, help='The index of the webcam, or the path to a video or image file')
     args = parser.parse_args()
 
     source = args.source
-    base_name = os.path.splitext(os.path.basename(source))[0]
-    extension = os.path.splitext(source)[1].lower()
 
-    if extension in ['.avi', '.mp4', '.mov']:  
-        output_filename = f"{base_name}_processed.mp4"
+    if source.isdigit():  
+        source = int(source)
+        output_filename = "camera_output.mp4"
         process_video(source, output_filename)
-    elif extension in ['.jpg', '.jpeg', '.png']:  
-        output_filename = f"{base_name}_processed.jpg"
-        process_image(source, output_filename)
     else:
-        print("Unsupported file format.")
+        base_name = os.path.splitext(os.path.basename(source))[0]
+        extension = os.path.splitext(source)[1].lower()
+
+        if extension in ['.avi', '.mp4', '.mov']:  
+            output_filename = f"{base_name}_processed.mp4"
+            process_video(source, output_filename)
+        elif extension in ['.jpg', '.jpeg', '.png']:  
+            output_filename = f"{base_name}_processed.jpg"
+            process_image(source, output_filename)
+        else:
+            print("Unsupported file format.")
 
 if __name__ == '__main__':
     main()
